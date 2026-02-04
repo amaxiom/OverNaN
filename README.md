@@ -89,6 +89,24 @@ OverNaN(method='SMOTE', nan_handling='preserve_pattern')
 OverNaN(method='SMOTE', nan_handling='interpolate')
 ```
 
+## Sampling Strategies
+
+Control how much to oversample each class:
+
+```python
+# Balance to match majority class (default)
+oversampler = OverNaN(sampling_strategy='auto')
+
+# Only oversample the minority class
+oversampler = OverNaN(sampling_strategy='minority')
+
+# Oversample to 80% of majority class size
+oversampler = OverNaN(sampling_strategy=0.8)
+
+# Specify exact counts per class
+oversampler = OverNaN(sampling_strategy={0: 100, 1: 100})
+```
+
 ## Integration with XGBoost
 
 XGBoost handles NaN natively, making it ideal for use with OverNaN:
@@ -110,6 +128,50 @@ model = xgb.XGBClassifier()
 model.fit(X_train_res, y_train_res)
 accuracy = model.score(X_test, y_test)
 ```
+
+## Direct Class Usage
+
+```python
+from overnan import SMOTENaN, ADASYNNaN, ROSENaN
+
+# Direct SMOTE-NaN usage
+smote = SMOTENaN(neighbours=5, nan_handling='preserve_pattern', random_state=42)
+X_resampled, y_resampled = smote.fit_resample(X, y)
+
+# Direct ADASYN-NaN usage
+adasyn = ADASYNNaN(neighbours=5, beta=1.0, learning_rate=1.5, random_state=42)
+X_resampled, y_resampled = adasyn.fit_resample(X, y)
+
+# Direct ROSE-NaN usage
+rose = ROSENaN(shrinkage=1.0, nan_handling='interpolate', random_state=42)
+X_resampled, y_resampled = rose.fit_resample(X, y)
+```
+
+## How It Works
+
+### NaN-Aware Distance Calculation (SMOTE and ADASYN)
+
+Distance is calculated using only the features that are non-NaN in both samples, then scaled by the proportion of valid features:
+
+```
+distance = sqrt(sum((x1[valid] - x2[valid])^2) * (n_total / n_valid))
+```
+
+### ROSE Kernel Density Estimation
+
+ROSE generates synthetic samples by perturbing seed samples with Gaussian noise:
+
+```
+x_new = x_seed + N(0, H)
+```
+
+where H is computed using Silverman's rule of thumb, scaled by the `shrinkage` parameter.
+
+## Performance Considerations
+
+- **Parallel Processing**: Enable with `n_jobs=-1` for large datasets
+- **ROSE for High Dimensions**: ROSE does not require neighbor search, making it more efficient for high-dimensional data
+- **Memory Usage**: Synthetic samples are generated in batches to manage memory
 
 ## Documentation
 
