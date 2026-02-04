@@ -185,7 +185,7 @@ Contributions are welcome! Please feel free to submit issues or pull requests.
 
 ## Citation
 
-If you use DataTypical in your research, please cite:
+If you use OverNaN in your research, please cite:
 
 ```bibtex
 @software{overnan2026,
