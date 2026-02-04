@@ -123,17 +123,21 @@ accuracy = model.score(X_test, y_test)
 
 ```
 OverNaN/
-├── overnan.py                     # Main module (OverNaN, SMOTENaN, ADASYNNaN, ROSENaN)
+├── overnan.py                                   # Main module (OverNaN, SMOTENaN, ADASYNNaN, ROSENaN)
 ├── tests/
-│   ├── OverNaN_testing.md         # Testing documentation
-│   ├── OverNaN_testing.ipynb      # Testing notebook
-│   ├── OverNaN_test.py            # Unit and integration tests
-│   └── OverNaN_bench.py           # OpenML benchmarks
+│   ├── OverNaN_testing.md                       # Testing documentation
+│   ├── OverNaN_testing.ipynb                    # Testing notebook
+│   ├── OverNaN_test.py                          # Unit and integration tests
+│   └── OverNaN_bench.py                         # OpenML benchmarks
 ├── docs/
-│   ├── OverNaN_interpretation.md  # Methods and usage guide
-│   └── OverNaN_computation.md     # Technical implementation guide
+│   ├── OverNaN_interpretation.md                # Methods and usage guide
+│   └── OverNaN_computation.md                   # Technical implementation guide
 ├── examples/
-│   └── OverNaN_example.ipynb      # Basic example notebook
+│   ├── OverNaN_example_synthetic.ipynb          # Basic example notebook
+│   ├── overnan_synthetic_comparison.png         # Basic example output
+│   ├── OverNaN_example_grapheneoxide.ipynb      # Graphene Oxide example notebook
+│   ├── overnan_grapheneoxide_comparisons.png    # Graphene Oxide example output
+│   └── grapheneoxide.csv                        # Graphene Oxide input
 ├── setup.py
 ├── requirements.txt
 ├── LICENSE
