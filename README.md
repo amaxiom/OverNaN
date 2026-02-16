@@ -5,6 +5,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://badge.fury.io/py/overnan.svg)](https://pypi.org/project/overnan/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18653666.svg)](https://doi.org/10.5281/zenodo.18653666)
 
 There are lots of reasons why many datasets contain missing values, particularly when dealing with real-world data. Missingness can be resolved using imputation, but the addition of synthetic instances can bias models and give overly optimistic training performance metrics and poor generalisability. Imputation also masks the hidden information about the missing mechanisms, since missingness can also be meaningful. To help eliminate the need for imputation and better prepare models for real-world validation, OverNaN implements NaN-aware oversampling algorithms for handling class imbalance in datasets with missing values. OverNaN preserves missingness patterns while generating synthetic minority class samples, and is the perfect partner to learning algorithms that natively handle NaNs. The aim is to achieve similar or better classification performance compared to imputation, while preserving the missingness and only using real data.
 
@@ -256,7 +257,18 @@ If you use OverNaN in your research, please cite:
   title = {OverNaN: Oversampling for Imbalanced Learning with Missing Values},
   year = {2026},
   url = {https://github.com/amaxiom/OverNaN},
-  version = {0.2}
+  version = {0.2.0}
+}
+```
+
+```bibtex
+@software{Barnard2026OverNaN,
+  author={Barnard, Amanda},
+  title={OverNaN},
+  year={2026},
+  publisher={Zenodo},
+  version={0.2.0},
+  doi={10.5281/zenodo.18653666}
 }
 ```
 
