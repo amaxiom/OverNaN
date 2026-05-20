@@ -252,12 +252,14 @@ Contributions are welcome! Please feel free to submit issues or pull requests.
 If you use OverNaN in your research, please cite:
 
 ```bibtex
-@software{overnan2026,
-  author = {Barnard, Amanda S.},
-  title = {OverNaN: Oversampling for Imbalanced Learning with Missing Values},
-  year = {2026},
-  url = {https://github.com/amaxiom/OverNaN},
-  version = {0.2.0}
+@misc{barnard2026ON,
+      title={OverNaN: NaN-Aware Oversampling for Imbalanced Learning with Meaningful Missingness}, 
+      author={Amanda S Barnard},
+      year={2026},
+      eprint={2605.11525},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2605.11525}, 
 }
 ```
 
